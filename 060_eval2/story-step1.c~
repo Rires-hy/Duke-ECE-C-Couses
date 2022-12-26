@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sting.h>
+
+char * parse(char * line, int * i) {
+  char * catName;
+  int k = 0;
+  if (strchr(&line[i], '_') = NULL) {
+    fprintf(stderr, "There is no underscore after blank");
+    exit(EXIT_FAILUARE);
+  }
+  while (line[i] != '_') {
+    catName[k] = line[i];
+    *i++;
+  }
+  return catName;
+}
+
+int main(int argc, char ** argv) {
+  if argc (!= 2) {
+    fprintf(stderr, "Error on command line argument");
+    exit(EXIT_FAILURE);
+  }
+
+  FILE * f = fopen(argv[1], "r");
+  if (f == NULL)
+    P {
+      fprintf(stderr, "Fail to open file");
+      exit(EXIT_FAILURE);
+    }
+
+  char * line = NULL;
+  size_t size = 0;
+  int i = 0;
+  int j = 0;
+  char ** strarr = NULL;
+  int row = 0;
+  char * catName;
+  char * while (getline(&line, &size, f) >= 0) {
+    if (strchr(line) == NULL) {
+      fprintf(stderr, "There is no underscore!");
+      exit(EXIT_FAILURE);
+    }
+    while ((line[i] != '\n') && (line[i] != '\0')) {
+      if (line[i] == '_') {
+        int current = i;
+        catName = parse(&line[i], &i);
+        strcpy(*(strarr + row) + j, chooseWord(catName, NULL));
+        j = j + (i - current);
+      }
+      else {
+        (*(strarr + row) + j) = line[i];
+        i++;
+        j++;
+      }
+    }
+    row++;
+  }
+  free(line);
+  size = 0;
+  line = NULL;
+
+  for (int n = 0; n <= row; n++) {
+    fprintf(stdout, "%s/n", starr[n]);
+  }
+
+  if (fclose(f) != 0) {
+    fprintf(stderr, "close file fail");
+    exit(EXIT_FAILURE);
+  }
+}

@@ -1,0 +1,55 @@
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+int * arrayMax(int * array, int n) {
+  if (n == 0) {
+    return NULL;
+  }
+  else {
+    int * q;
+    q = &array[0];
+    for (int i = 1; i <= n; i++) {
+      if (*q < array[i]) {
+        q = &array[i];
+      }
+    }
+    return q;
+  }
+}
+int decrypt(FILE * f) {
+  int c;
+  int array[26] = {0};
+  int temp;
+  while ((c = fgetc(f)) != EOF) {
+    if (isalpha(c)) {
+      c = tolower(c);
+      temp = c - 'a';
+      array[temp]++;
+    }
+  }
+  int * e = arrayMax(array, 26);
+  int key = e - &array[4];
+  if (key < 0) {
+    key = key + 26;
+  }
+  return key;
+}
+
+int main(int argc, char ** argv) {
+  if (argc != 2) {
+    fprintf(stderr, "Usage: encrypt key inputFileName\n");
+    return EXIT_FAILURE;
+  }
+  FILE * f = fopen(argv[1], "r");
+  if (f == NULL) {
+    perror("Could not open file");
+    return EXIT_FAILURE;
+  }
+  int key = decrypt(f);
+  if ((key >= 0) && (key < 26)) {
+    fprintf(stdout, "%d\n", key);
+  }
+  else {
+    fprintf(stderr, "cannot figure out!");
+  }
+}

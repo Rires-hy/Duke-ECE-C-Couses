@@ -1,0 +1,36 @@
+#error
+printCountries invalid.csv
+printDailyMax invalid.csv
+printCumulative invalid.csv
+printRunningAvg invalid.csv
+printCountries test1.csv
+printCountries test2.csv
+printCountries test3.csv
+printCountries test4.csv
+printCountries test5.csv
+printCountries test6.csv
+printCountries test7.csv
+printCountries test8.csv
+printCountries test9.csv
+printCountries test10.csv
+printCountries test11.csv
+printCountries test12.csv
+printCountries test13.csv
+
+printRunningAvg population.csv daily_invalid.csv
+#success
+printCountries population.csv
+printDailyMax population.csv daily_small.csv
+printRunningAvg population.csv daily_small.csv
+printCumulative population.csv daily_small.csv
+
+printDailyMax population.csv daily_cases.csv
+printRunningAvg population.csv daily_cases.csv
+printCumulative population.csv daily_cases.csv
+
+printCountries test1.csv
+printCountries test2.csv
+printCountries test3.csv
+printCountries test4.csv
+printCountries test5.csv
+printCountries test6.csv

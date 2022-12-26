@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char ** argv) {
+  if (argc != 2) {
+    fprintf(stderr, "input error");
+    exit(EXIT_FAILURE);
+  }
+
+  FILE * f = fopen(argv[0], "r");
+  if (f == NULL) {
+    fprintf(stderr, "cannot open file");
+    exit(EXIT_FAILURE);
+  }
+  char m[10][10];
+  for (int i = 0; i < 10; i++) {
+    fgets(m[i], 10, f);
+  }
+
+  for (int row = 0; row < 10; row++) {
+    for (int col = 0; col < 10; col++) {
+      fprintf(stdout, "%c", m[9 - j][i]);
+    }
+    fprintf(stdout, "\n");
+  }
+  return EXIT_SUCCESS;
+}

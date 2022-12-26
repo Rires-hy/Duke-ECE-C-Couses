@@ -1,0 +1,2 @@
+decrypt: breaker.c
+	gcc -Wall -Werror -std=gnu99 -pedantic -o decrypt breaker.c

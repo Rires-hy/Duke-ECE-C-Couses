@@ -1,0 +1,51 @@
+#include "pandemic.h"
+
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+country_t parseLine(char * line) {
+  //WRITE ME
+  country_t ans;
+  ans.name[0] = '\0';
+  ans.population = 0;
+  if (strchr(line, '\n') == NULL) {
+    printf("line is too long!\n");
+  }
+  int i = 0;
+  while (line[i] != ',') {
+    ans.name[i] = line[i];
+    i++;
+  }
+  char p[64];
+  i = i + 1;
+  int j = 0;
+  while (line[i] != '\0') {
+    if (isdigit(line[i])) {
+      p[j] = line[i];
+      i++;
+      j++;
+    }
+    else {
+      break;
+    }
+  }
+  ans.population = atoi(p);
+
+  return ans;
+}
+
+void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
+  //WRITE ME
+}
+
+void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
+  //WRITE ME
+}
+
+void printCountryWithMax(country_t * countries,
+                         size_t n_countries,
+                         unsigned ** data,
+                         size_t n_days) {
+  //WRITE ME
+}

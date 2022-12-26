@@ -1,0 +1,8 @@
+story-step1 story.txt
+story-step1 trickystory.txt
+story-step2 words.txt
+story-step2 trickyword.txt
+story-step3 words.txt story2.txt
+story-step3 trickword.txt trickstory.txt
+story-step4 words.txt story2.txt
+story-step4 -n words.txt story2.txt
